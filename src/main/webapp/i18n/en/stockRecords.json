@@ -1,0 +1,27 @@
+{
+  "chartTestingApp": {
+    "stockRecords": {
+      "home": {
+        "title": "Stock Records",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Stock Records",
+        "createOrEditLabel": "Create or edit a Stock Records",
+        "notFound": "No Stock Records found"
+      },
+      "created": "A new Stock Records is created with identifier {{ param }}",
+      "updated": "A Stock Records is updated with identifier {{ param }}",
+      "deleted": "A Stock Records is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Stock Records {{ id }}?"
+      },
+      "detail": {
+        "title": "Stock Records"
+      },
+      "id": "ID",
+      "stockId": "Stock Id",
+      "sticker": "Sticker",
+      "businessDate": "Business Date",
+      "stockPrice": "Stock Price"
+    }
+  }
+}

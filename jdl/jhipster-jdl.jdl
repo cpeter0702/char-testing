@@ -1,0 +1,11 @@
+entity StockRecords {
+  stockId Long required,
+  sticker String,
+  businessDate ZonedDateTime,
+  stockPrice BigDecimal required
+}
+
+/**
+ * 產生 Service 層
+ */
+service StockRecords with serviceClass

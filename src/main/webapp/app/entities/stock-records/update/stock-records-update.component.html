@@ -1,0 +1,85 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-stock-records-heading"
+        data-cy="StockRecordsCreateUpdateHeading"
+        jhiTranslate="chartTestingApp.stockRecords.home.createOrEditLabel"
+      >
+        建立或編輯 Stock Records
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="chartTestingApp.stockRecords.sticker" for="field_sticker">Sticker</label>
+          <input type="text" class="form-control" name="sticker" id="field_sticker" data-cy="sticker" formControlName="sticker" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="chartTestingApp.stockRecords.businessDate" for="field_businessDate">Business Date</label>
+          <div class="d-flex">
+            <input
+              id="field_businessDate"
+              data-cy="businessDate"
+              type="datetime-local"
+              class="form-control"
+              name="businessDate"
+              formControlName="businessDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="chartTestingApp.stockRecords.stockPrice" for="field_stockPrice">Stock Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="stockPrice"
+            id="field_stockPrice"
+            data-cy="stockPrice"
+            formControlName="stockPrice"
+          />
+          @if (editForm.get('stockPrice')!.invalid && (editForm.get('stockPrice')!.dirty || editForm.get('stockPrice')!.touched)) {
+            <div>
+              @if (editForm.get('stockPrice')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">此欄位必須填寫。</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('stockPrice')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >此欄位只能是數字。</small
+              >
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">取消</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">儲存</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

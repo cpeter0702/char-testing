@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-3">
+    <span class="hipster img-fluid rounded"></span>
+  </div>
+
+  <div class="col-md-9">
+    <h1 class="display-4"><span jhiTranslate="home.title">Java 文青，歡迎!</span> (Chart Testing)</h1>
+
+    <p class="lead" jhiTranslate="home.subtitle">這裡是您的首頁</p>
+
+    <div>
+      @if (account() !== null) {
+        <div class="alert alert-success">
+          @if (account()) {
+            <span id="home-logged-message" jhiTranslate="home.logged.message" [translateValues]="{ username: account()!.login }"
+              >您目前是用 “{{ account()!.login }}” 帳號登入。</span
+            >
+          }
+        </div>
+      } @else {
+        <div class="alert alert-warning">
+          <span jhiTranslate="global.messages.info.authenticated.prefix">如果您要</span>
+          <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">登入</a
+          ><span jhiTranslate="global.messages.info.authenticated.suffix"
+            >，可以使用預設帳號:<br />- 管理員 (帳號是 &quot;admin&quot;，密碼是 &quot;admin&quot;) <br />- 使用者 (帳號
+            &quot;user&quot;，密碼是 &quot;user&quot;)。</span
+          >
+        </div>
+
+        <div class="alert alert-warning">
+          <span jhiTranslate="global.messages.info.register.noaccount">還沒有帳號嗎?</span>&nbsp;
+          <a class="alert-link" routerLink="/account/register" jhiTranslate="global.messages.info.register.link">註冊一個吧</a>
+        </div>
+      }
+    </div>
+
+    <p jhiTranslate="home.question">要是您對 JHipster 有任何疑問，可以到:</p>
+
+    <ul>
+      <li>
+        <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.homepage">JHipster 首頁</a>
+      </li>
+      <li>
+        <a
+          href="https://stackoverflow.com/tags/jhipster/info"
+          target="_blank"
+          rel="noopener noreferrer"
+          jhiTranslate="home.link.stackoverflow"
+          >Stack Overflow 上標有 JHipster 的問題</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/jhipster/generator-jhipster/issues?state=open"
+          target="_blank"
+          rel="noopener noreferrer"
+          jhiTranslate="home.link.bugtracker"
+          >JHipster 議題管理</a
+        >
+      </li>
+      <li>
+        <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.chat"
+          >JHipster 公開聊天室</a
+        >
+      </li>
+      <li>
+        <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.link.follow"
+          >在 Twitter 上關注 &#64;jhipster</a
+        >
+      </li>
+    </ul>
+
+    <p>
+      <span jhiTranslate="home.like">如果您喜歡 JHipster，別忘了給我們星星，馬上連到</span>
+      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" jhiTranslate="home.github"
+        >GitHub</a
+      >!
+    </p>
+  </div>
+</div>

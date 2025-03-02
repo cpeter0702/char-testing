@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20250302100821"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "stockId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sticker",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "businessDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "stockPrice",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "StockRecords",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
