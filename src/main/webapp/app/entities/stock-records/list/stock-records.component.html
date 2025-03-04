@@ -2,6 +2,10 @@
   <h2 id="page-heading" data-cy="StockRecordsHeading">
     <span jhiTranslate="chartTestingApp.stockRecords.home.title">Stock Records</span>
 
+    <div>
+      <ag-charts style="height: 100%" [options]="chartOptions"> </ag-charts>
+    </div>
+
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>

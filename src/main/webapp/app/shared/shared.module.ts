@@ -8,12 +8,13 @@ import FindLanguageFromKeyPipe from './language/find-language-from-key.pipe';
 import TranslateDirective from './language/translate.directive';
 import { AlertComponent } from './alert/alert.component';
 import { AlertErrorComponent } from './alert/alert-error.component';
-
+import { AgChartsModule } from 'ag-charts-angular';
+import { AgGridModule } from 'ag-grid-angular';
 /**
  * Application wide Module
  */
 @NgModule({
-  imports: [AlertComponent, AlertErrorComponent, FindLanguageFromKeyPipe, TranslateDirective],
+  imports: [AlertComponent, AlertErrorComponent, FindLanguageFromKeyPipe, TranslateDirective, AgChartsModule],
   exports: [
     CommonModule,
     NgbModule,
@@ -23,6 +24,8 @@ import { AlertErrorComponent } from './alert/alert-error.component';
     TranslateModule,
     FindLanguageFromKeyPipe,
     TranslateDirective,
+    AgGridModule,
+    AgChartsModule,
   ],
 })
 export default class SharedModule {}

@@ -11,6 +11,7 @@ import { SORT, ITEM_DELETED_EVENT, DEFAULT_SORT_DATA } from 'app/config/navigati
 import { IStockRecords } from '../stock-records.model';
 import { EntityArrayResponseType, StockRecordsService } from '../service/stock-records.service';
 import { StockRecordsDeleteDialogComponent } from '../delete/stock-records-delete-dialog.component';
+import { AgChartOptions } from 'ag-charts-community';
 
 @Component({
   standalone: true,
@@ -31,8 +32,24 @@ export class StockRecordsComponent implements OnInit {
   subscription: Subscription | null = null;
   stockRecords?: IStockRecords[];
   isLoading = false;
+  options: any;
 
   sortState = sortStateSignal({});
+
+  // ===== chart =====================================================================================
+  chartOptions: AgChartOptions = {
+    // Data: Data to be displayed in the chart
+    data: [
+      { month: 'Jan', avgTemp: 2.3, iceCreamSales: 162000 },
+      { month: 'Mar', avgTemp: 6.3, iceCreamSales: 302000 },
+      { month: 'May', avgTemp: 16.2, iceCreamSales: 800000 },
+      { month: 'Jul', avgTemp: 22.8, iceCreamSales: 1254000 },
+      { month: 'Sep', avgTemp: 14.5, iceCreamSales: 950000 },
+      { month: 'Nov', avgTemp: 8.9, iceCreamSales: 200000 },
+    ],
+    // Series: Defines which chart type and data to use
+    series: [{ type: 'bar', xKey: 'month', yKey: 'iceCreamSales' }],
+  };
 
   public router = inject(Router);
   protected stockRecordsService = inject(StockRecordsService);
